@@ -55,7 +55,16 @@ app.post('/leaderboard/:event', async (req, res) => {
     const { resource: createdItem } = await container.items.create(newItem);
     console.log(createdItem)
     console.log(`\r\nCreated new item: ${createdItem.id} - ${createdItem.description}\r\n`);
-    res.sendStatus(200);
+    
+    const querySpec = {
+        query: "SELECT leaderboard.username, leaderboard.score from leaderboard where leaderboard.event = '"+ event +"'"
+    };
+    const { resources: items } =  await container.items.query(querySpec).fetchAll();
+
+    items.forEach(item => {
+        console.log(`${item.id} - ${item.description}`);
+    });
+    res.send({ leaderboard: items});
 });
 
 app.listen(port, () => {
