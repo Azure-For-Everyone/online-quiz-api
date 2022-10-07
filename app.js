@@ -22,7 +22,7 @@ app.get('/leaderboard/:event', async (req, res) => {
         const { event }  = req.params
         console.log(req.params)
         const querySpec = {
-            query: "SELECT username, score from leaderboard where leaderboard.event = '"+ event +"'"
+            query: "SELECT leaderboard.username, leaderboard.score from leaderboard where leaderboard.event = '"+ event +"'"
         };
         const { resources: items } =  await container.items.query(querySpec).fetchAll();
 
