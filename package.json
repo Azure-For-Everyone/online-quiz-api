@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run app.js",
-    "create": "npm run create-database.js"
+    "start": "node app.js",
+    "create": "node create-database.js"
   },
   "repository": {
     "type": "git",
