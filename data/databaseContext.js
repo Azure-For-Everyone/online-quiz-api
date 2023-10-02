@@ -22,7 +22,6 @@ async function create(client, databaseId, containerId) {
     .database(databaseId)
     .containers.createIfNotExists(
       { id: containerId, partitionKey },
-      { offerThroughput: 400 }
     );
 
   console.log(`Created container:\n${container.id}\n`);

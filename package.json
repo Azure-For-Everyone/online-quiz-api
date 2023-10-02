@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "start": "npm run app.js",
+    "create": "npm run create-database.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Azure-For-Everyone/online-quiz-api.git"
